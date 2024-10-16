@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Bird with Flapping Wings and Subtle Hovering</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20vh;
+            background-color: #ffffff; /* Sky blue background */
+        }
+        .bird-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            animation: hoverEffect 4s ease-in-out infinite;
+        }
+        .bird, .wing {
+            position: absolute;
+        }
+        .bird {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+        }
+        .wing {
+            width: 100%;
+            height: 100%;
+            top: -160%;
+            left: -5%;
+        }
+        .wing-up {
+            animation: flapUpWing 0.7s infinite;
+            transform-origin: bottom center;
+        }
+        .wing-down {
+            animation: flapDownWing 0.7s infinite;
+            transform-origin: top center;
+        }
+        @keyframes flapUpWing {
+            0%, 25%, 75%, 100% { transform: scaleY(1); }
+            25%, 75% { transform: scaleY(0); }
+        }
+        @keyframes flapDownWing {
+            0%, 25%, 75%, 100% { transform: scaleY(0); }
+            45% { transform: scaleY(1); }
+        }
+        @keyframes hoverEffect {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, -5px); }
+            50% { transform: translate(5px, 5px); }
+            75% { transform: translate(-5px, 5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bird-container">
+        <img src="bird.svg" alt="Bird body" class="bird">
+        <img src="wing_up.svg" alt="Wings up" class="wing wing-up">
+        <img src="wing_down.svg" alt="Wings down" class="wing wing-down">
+    </div>
+</body>
+</html>
